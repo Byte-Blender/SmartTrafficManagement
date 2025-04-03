@@ -1,88 +1,143 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Traffic Management System</title>
-    <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; max-width: 800px; margin: auto; padding: 20px; }
-        h1, h2, h3 { color: #333; }
-        code { background: #f4f4f4; padding: 2px 5px; border-radius: 5px; }
-        pre { background: #f4f4f4; padding: 10px; border-radius: 5px; overflow-x: auto; }
-        ul { margin: 10px 0; padding-left: 20px; }
-        .box { background: #f8f9fa; padding: 10px; border-left: 5px solid #007bff; margin-bottom: 10px; }
-    </style>
-</head>
-<body>
+Smart Traffic Management System
 
-    <h1>Smart Traffic Management System</h1>
+1. Overview
 
-    <p>The <strong>Smart Traffic Management System</strong> is an AI-powered solution that dynamically controls traffic lights based on real-time vehicle detection using <strong>YOLO (You Only Look Once)</strong>. It optimizes traffic flow by calculating green light durations based on vehicle density.</p>
+The Smart Traffic Management System is an AI-powered solution that dynamically controls traffic lights based on real-time vehicle detection. It uses YOLO (You Only Look Once) to detect vehicles and optimize green light durations per lane based on traffic density.
 
-    <h2>Features</h2>
-    <ul>
-        <li><strong>Real-Time Vehicle Detection:</strong> Uses YOLO for accurate vehicle counting.</li>
-        <li><strong>Dynamic Signal Timing:</strong> Adjusts green light duration based on traffic density.</li>
-        <li><strong>Tkinter GUI Interface:</strong> Provides a user-friendly control panel.</li>
-        <li><strong>Manual Override Mode:</strong> Allows users to manually set signal durations.</li>
-    </ul>
+2. Features
 
-    <h2>Installation</h2>
-    <h3>Prerequisites</h3>
-    <p>Ensure <strong>Python 3.x</strong> is installed, then install dependencies:</p>
-    <pre><code>pip install -r requirements.txt</code></pre>
+2.1 Dynamic Traffic Light Adjustment
 
-    <h3>Setting Up YOLO Model</h3>
-    <p>Download the <strong>pre-trained YOLO model</strong> and place it in the <code>models/</code> directory.</p>
+Uses YOLO-based car detection to analyze vehicle count in each lane.
 
-    <h2>Usage</h2>
-    <ol>
-        <li>Run the main script:</li>
-        <pre><code>python main.py</code></pre>
-        <li>Select <strong>video mode</strong> or <strong>manual mode</strong> via the GUI.</li>
-        <li>The system will analyze traffic density and adjust signals accordingly.</li>
-    </ol>
+Adjusts green light duration dynamically based on real-time traffic conditions.
 
-    <h2>Project Structure</h2>
-    <pre><code>
+
+2.2 Real-Time Video Processing
+
+Supports live video feeds and recorded video for traffic analysis.
+
+Detects vehicles in each lane and calculates optimal traffic signal durations.
+
+
+2.3 Tkinter GUI Interface
+
+A user-friendly graphical interface for controlling the system.
+
+Displays live traffic statistics and allows users to switch between modes.
+
+
+2.4 Manual Input Support
+
+Users can override the automatic system to manually adjust signal timings.
+
+
+
+---
+
+3. Installation
+
+3.1 Prerequisites
+
+Ensure that you have Python 3.x installed. Then install the required dependencies:
+
+pip install -r requirements.txt
+
+3.2 Setting Up YOLO Model
+
+Download the pre-trained YOLO model and place it inside the models/ directory.
+
+
+---
+
+4. Usage
+
+1. Run the main script:
+
+python main.py
+
+
+2. Select video mode or manual mode via the Tkinter GUI.
+
+
+3. The system will analyze traffic density and adjust signals accordingly.
+
+
+
+
+---
+
+5. Project Structure
+
 SmartTrafficManagement/
 │── src/                # Core scripts for traffic detection and signal control
 │── gui/                # Tkinter GUI implementation
-│── models/             # YOLO model files
-│── config/             # Configuration files
-│── data/               # Sample traffic videos
+│── models/             # Pre-trained YOLO models
+│── config/             # Configuration files for model and traffic settings
+│── data/               # Sample traffic videos for testing
 │── main.py             # Main execution script
-│── requirements.txt    # Dependencies
+│── requirements.txt    # List of dependencies
 │── README.md           # Documentation
-    </code></pre>
 
-    <h2>How It Works</h2>
-    <p><strong>1. Vehicle Detection:</strong> Uses <strong>YOLOv5</strong> to count vehicles in each lane.</p>
-    <p><strong>2. Signal Optimization:</strong> Calculates green light duration using the formula:</p>
-    <pre><code>T_green = (N_vehicles × T_unit) / Total_Vehicles</code></pre>
-    <p><strong>3. GUI Control System:</strong> Displays real-time traffic stats and allows manual overrides.</p>
 
-    <h2>Future Enhancements</h2>
-    <ul>
-        <li><strong>IoT Integration</strong> for smart traffic signal control.</li>
-        <li><strong>Reinforcement Learning</strong> for advanced traffic optimization.</li>
-        <li><strong>Emergency Vehicle & Pedestrian Detection</strong> for priority management.</li>
-    </ul>
+---
 
-    <h2>Contributing</h2>
-    <p>Contributions are welcome! Follow these steps:</p>
-    <ol>
-        <li><strong>Fork</strong> the repository.</li>
-        <li>Create a <strong>feature branch</strong> using: <code>git checkout -b feature-name</code></li>
-        <li><strong>Commit changes:</strong> <code>git commit -m "Added feature"</code></li>
-        <li><strong>Push</strong> to GitHub and create a <strong>pull request</strong>.</li>
-    </ol>
+6. Technical Implementation
 
-    <h2>License</h2>
-    <p>This project is licensed under the <strong>MIT License</strong>.</p>
+6.1 Vehicle Detection (YOLO-based)
 
-    <hr>
-    <p><strong>📌 Repository:</strong> <a href="https://github.com/Byte-Blender/SmartTrafficManagement">SmartTrafficManagement on GitHub</a></p>
+Uses a pre-trained YOLOv5 model for real-time car detection.
 
-</body>
-</html>
+Extracts vehicle count from each lane and assigns signal durations accordingly.
+
+
+6.2 Traffic Light Optimization Algorithm
+
+Calculates green light duration based on vehicle count:
+
+
+T_{green} = \frac{N_{vehicles} \times T_{unit}}{Total\ Vehicles}
+
+ = Number of vehicles in a lane
+
+ = Base unit time per vehicle
+
+ = Sum of all detected vehicles
+
+
+6.3 GUI Control System
+
+Built using Tkinter.
+
+Displays vehicle count, recommended green light times, and allows manual override.
+
+
+
+---
+
+7. Future Enhancements
+
+Integration with IoT-based traffic signal controllers for real-world deployment.
+
+Implementation of reinforcement learning for more adaptive traffic control.
+
+Adding pedestrian and emergency vehicle detection for priority control.
+
+
+
+---
+
+8. Contributing
+
+Contributions are welcome!
+
+1. Fork the repository.
+
+
+2. Create a new branch for your feature (git checkout -b feature-name).
+
+
+3. Commit changes (git commit -m "Added feature").
+
+
+4. Push to GitHub and create a pull request.
