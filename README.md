@@ -24,8 +24,6 @@ The **Smart Traffic Management System** is an intelligent traffic control system
 - User-friendly interface to monitor and control the system.
 - Displays live traffic stats, allows toggling between automatic and manual modes.
 
-### ✋ 2.4 Manual Input Support
-- Users can override the AI decisions and manually set traffic light durations.
 
 ---
 
