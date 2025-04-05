@@ -35,12 +35,32 @@ Ensure Python 3.x is installed. Then, install all dependencies:
 
 ## 📦 3.2 Setting Up YOLO Model
 
-Download the pre-trained YOLO model (e.g., YOLOv5 weights) and place it in the `models/` directory.
+Download the pre-trained YOLO model (e.g., YOLOv8 weights) and place it in the `models/` directory.
 
 ---
 
 ## ▶️ 4. Usage
 
 Run the main script:
+
+5. Project Structure
+graphql
+Copy
+Edit
+SmartTrafficManagement/
+│
+├── src/                # Core scripts for detection and traffic control
+├── gui/                # GUI implementation using Tkinter
+├── models/             # YOLO model files (weights and configs)
+├── config/             # Configuration files for YOLO and traffic logic
+├── data/               # Sample traffic videos
+├── main.py             # Main entry point for the application
+├── requirements.txt    # Python dependencies
+└── README.md           # Project documentation
+⚙️ 6. Technical Implementation
+🚗 6.1 Vehicle Detection (YOLO-based)
+Utilizes YOLOv5 for fast and accurate vehicle detection.
+
+Performs frame-by-frame analysis to compute vehicle density per lane.
 
 
