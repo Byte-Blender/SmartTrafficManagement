@@ -58,9 +58,44 @@ SmartTrafficManagement/
 ├── requirements.txt    # Python dependencies
 └── README.md           # Project documentation
 ⚙️ 6. Technical Implementation
+
 🚗 6.1 Vehicle Detection (YOLO-based)
 Utilizes YOLOv5 for fast and accurate vehicle detection.
 
 Performs frame-by-frame analysis to compute vehicle density per lane.
+
+The function Calculate_traffic_timing calculates the green light timing for four lanes based on the number of vehicles detected in each lane. Here's a breakdown of how it works, plus a cleaned-up version with comments and enhancements:
+
+🔍 Function Explanation
+Inputs:
+
+lane1, lane2, lane3, lane4: Number of vehicles in each respective lane.
+
+root: The Tkinter root window (which is destroyed when the function is called, likely to switch to a new window).
+
+Logic:
+
+If a lane has more than 5 vehicles, each vehicle above 5 adds threshold_timing seconds (default is 5 sec) to the base time of 30 sec.
+
+Cap: No lane gets more than 120 seconds of green light.
+
+🖱️ 6.3 GUI Control System
+Built using Tkinter
+
+Displays:
+
+Lane-wise vehicle count
+
+Recommended green light times
+
+Allows manual override of signal durations
+
+🌐 7. Future Enhancements
+🔌 IoT integration for real-world deployment with physical traffic lights
+
+🧠 Reinforcement learning for more adaptive and intelligent signal control
+
+🚑 Emergency vehicle and pedestrian detection for prioritization
+
 
 
